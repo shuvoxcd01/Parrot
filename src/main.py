@@ -15,7 +15,7 @@ texts = []
 if text_file_name:
     logging.debug("Text file name" + text_file_name)
     with open(text_file_name, "r") as f:
-        texts = f.readlines()
+        texts = f.read().split("\n\n")
 
 logging.debug("Ontology file name" + ontology_file_name)
 keywords = get_keywords(ontology_file_path=ontology_file_name)
@@ -44,6 +44,9 @@ for key in candidate_labels:
     output_dict[key] = []
 
 for text in texts:
+    if not text:
+        continue
+
     classifier_output = classify(text, candidate_labels)
 
     for key in classifier_output.keys():
