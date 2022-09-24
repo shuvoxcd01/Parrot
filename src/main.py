@@ -3,7 +3,6 @@ import os
 import sys
 from classifier import classify
 from onto_helper import get_keywords
-from onto import ONTOLOGY_FILE_DIR
 from scrappy import get_text_from_web
 import logging
 
